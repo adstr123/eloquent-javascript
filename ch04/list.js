@@ -1,7 +1,14 @@
 /**
+ * A list data structure - nested set of objects, each referencing the following one in rest prop
+ * @typedef {Object} List
+ * @property {*} value the list element value to store
+ * @property {Object} rest reference to the rest of the list (same format as this object)
+ */
+
+/**
  * Builds a list data structure from an array
- * @param {Array} array an array of any data type, to turn into a list
- * @returns {Object} a nested set of objects, each referencing the following one
+ * @param {*[]} array an array of any data type, to turn into a list
+ * @returns {List}
  */
 function arrayToList(array) {
   let list = null;
@@ -17,8 +24,8 @@ function arrayToList(array) {
 
 /**
  * Builds an Array from a list
- * @param {Object} list a list of any data type, to turn into an array
- * @returns {Array}
+ * @param {List} list a list of any data type, to turn into an array
+ * @returns {*[]}
  */
 function listToArray(list) {
   let array = [];
@@ -34,18 +41,18 @@ function listToArray(list) {
 
 /**
  * Returns a new list that adds a specified element to the front of that list
- * @param {Object} listElement list element to add
- * @param {Object} list the list to add to
- * @returns {Object}
+ * @param {*} value list element to add
+ * @param {List} list the list to add to
+ * @returns {List}
  */
-function prepend(listElement, list) {
-  return { value: listElement, rest: list };
+function prepend(value, list) {
+  return { value, rest: list };
 }
 
 /**
  * Returns the element at the nth position of a specified list
  * @param {number} index element position to retrieve
- * @param {Object} list the list to add to
+ * @param {List} list the list to add to
  */
 function nth(list, index) {
   if (!list) {

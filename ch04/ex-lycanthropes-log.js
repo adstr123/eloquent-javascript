@@ -31,6 +31,8 @@ function phi(table) {
  * Extracts a 2x2 frequency table for a specific event from the journal JSON object
  * @param {string} event event to search for occurrences of
  * @param {Object} journal data source
+ * @param {string[]} journal.events array of that day's events
+ * @param {boolean} journal.squirrel indicates whether transformation into squirrel took place on that day
  * @returns {number[]}
  */
 function tableFor(event, journal) {
@@ -49,6 +51,8 @@ function tableFor(event, journal) {
  * Returns a list of all event types present in the data
  * Enables us to compute a correlation for every type of event that occurs in the data set
  * @param {Object} journal data source
+ * @param {string[]} journal.events array of that day's events
+ * @param {boolean} journal.squirrel indicates whether transformation into squirrel took place on that day
  * @returns {string[]}
  */
 function journalEvents(journal) {
