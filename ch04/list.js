@@ -2,8 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Builds a list data structure from an array
- * @param {*[]} array an array of any data type, to turn into a list
- * @returns {List}
+ * @param array - An array of any data type, to turn into a list
  */
 function arrayToList(array) {
     if (array.length > 0) {
@@ -23,8 +22,7 @@ function arrayToList(array) {
 }
 /**
  * Builds an Array from a list
- * @param {List} list a list of any data type, to turn into an array
- * @returns {*[]}
+ * @param list - A list of any data type, to turn into an array
  */
 function listToArray(list) {
     let array = [];
@@ -39,9 +37,6 @@ function listToArray(list) {
 /**
  * Returns a new list that adds a specified element to the front of a specified list
  * If the specified list is null, it creates a new list whose only value is the new value added
- * @param {*} value list element to add
- * @param {List} list the list to add to
- * @returns {List}
  */
 function prepend(value, list) {
     return { value, rest: list };

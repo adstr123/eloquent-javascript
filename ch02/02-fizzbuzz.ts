@@ -3,9 +3,9 @@
  * Numbers divisible by 3 are replaced by "Fizz"
  * Numbers divisible by 5 are replaced by "Buzz"
  * Numbers divisible by both are replaced by "FizzBuzz"
- * @param {number} limit the number of iterations
+ * @param limit the number of iterations
  */
-function fizzBuzz(limit: number) {
+function fizzBuzz(limit: number): void {
   for (let i = 0; i <= limit; i++) {
     if (i % 3 === 0 && i % 5 === 0) {
       console.log("FizzBuzz");

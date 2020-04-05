@@ -2,18 +2,12 @@
 /** Represents a vector in 2-dimensional space */
 class Vec {
     constructor(x, y) {
-        /**
-         * Create a vector
-         * @param {number} x - The x value
-         * @param {number} y - The y value
-         */
         this.x = x;
         this.y = y;
     }
     /**
      * Finds the sum of this & an input vectors' x & y values
-     * @param {Vec} vector
-     * @returns {Vec} a new vector with summed x & y values
+     * @returns a new vector with summed x & y values
      */
     plus(vector) {
         let summedVector = new Vec(0, 0);
@@ -23,8 +17,7 @@ class Vec {
     }
     /**
      * Finds the difference between this & an input vectors' x & y values
-     * @param {Vec} vector
-     * @returns {Vec} a new vector with subtracted x & y values
+     * @returns a new vector with subtracted x & y values
      */
     minus(vector) {
         let subbedVector = new Vec(0, 0);

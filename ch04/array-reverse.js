@@ -1,8 +1,6 @@
 "use strict";
 /**
  * Returns a new array that has the elements of the input array but in reverse order
- * @param {*[]} numbers
- * @returns {*[]}
  */
 function reverseArray(numbers) {
     const numbersReversed = [];
@@ -13,8 +11,6 @@ function reverseArray(numbers) {
 }
 /**
  * Modified the input array to reverse the order of its elements
- * @param {number[]} numbers
- * @returns {number[]}
  */
 function reverseArrayInPlace(numbers) {
     // use Math.floor() in case length is odd

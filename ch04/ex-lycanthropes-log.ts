@@ -3,8 +3,8 @@ const JOURNAL: IJournal = require("./ex-lycanthropes-log-data.json");
 
 /**
  * Records an event in the journal JSON object
- * @param {string[]} events a list of the day's events to record
- * @param {boolean} squirrel whether squirrel form was assumed during the day or not
+ * @param events - A list of the day's events to record
+ * @param squirrel - Whether squirrel form was assumed during the day or not
  */
 function addEntry(events: string[], squirrel: boolean): void {
   JOURNAL.push({ events, squirrel });
@@ -14,7 +14,7 @@ function addEntry(events: string[], squirrel: boolean): void {
  * Calculates correlation coefficient between a table of event frequencies
  * Transcription of the formula \frac{ n_{11} n_{00} - n_{10} n_{01} }{\sqrt{ n_1\bullet n_0\bullet n_1\bullet n_0\bullet }}
  * ... where n is one of the event frequencies, n\bullet is the sum of all measurements where n event is true
- * @param {number[]} table flat array denoting a 2x2 frequency table
+ * @param table - Flat array denoting a 2x2 frequency table
  */
 function phi(table: number[]): number {
   return (
@@ -30,11 +30,8 @@ function phi(table: number[]): number {
 
 /**
  * Extracts a 2x2 frequency table for a specific event from the journal JSON object
- * @param {string} event - event to search for occurrences of
- * @param {Object} journal - data source
- * @param {string[]} journal.events - array of that day's events
- * @param {boolean} journal.squirrel - indicates whether transformation into squirrel took place on that day
- * @returns {number[]}
+ * @param event - Event to search for occurrences of
+ * @param journal - Data source
  */
 function tableFor(event: string, journal: IJournal): number[] {
   let table = [0, 0, 0, 0];
@@ -51,10 +48,7 @@ function tableFor(event: string, journal: IJournal): number[] {
 /**
  * Returns a list of all event types present in the data
  * Enables us to compute a correlation for every type of event that occurs in the data set
- * @param {Object} journal data source
- * @param {string[]} journal.events array of that day's events
- * @param {boolean} journal.squirrel indicates whether transformation into squirrel took place on that day
- * @returns {string[]}
+ * @param journal - Data source
  */
 function journalEvents(journal: IJournal): string[] {
   let events: string[] = [];

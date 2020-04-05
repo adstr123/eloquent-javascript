@@ -3,19 +3,13 @@ class Vec {
   x: number;
   y: number;
   constructor(x: number, y: number) {
-    /**
-     * Create a vector
-     * @param {number} x - The x value
-     * @param {number} y - The y value
-     */
     this.x = x;
     this.y = y;
   }
 
   /**
    * Finds the sum of this & an input vectors' x & y values
-   * @param {Vec} vector
-   * @returns {Vec} a new vector with summed x & y values
+   * @returns a new vector with summed x & y values
    */
   plus(vector: Vec): Vec {
     let summedVector = new Vec(0, 0);
@@ -27,8 +21,7 @@ class Vec {
 
   /**
    * Finds the difference between this & an input vectors' x & y values
-   * @param {Vec} vector
-   * @returns {Vec} a new vector with subtracted x & y values
+   * @returns a new vector with subtracted x & y values
    */
   minus(vector: Vec): Vec {
     let subbedVector = new Vec(0, 0);

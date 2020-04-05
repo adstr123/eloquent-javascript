@@ -6,8 +6,6 @@ class Group {
     }
     /**
      * Returns a boolean that reflects whether the specified value already exists in the group
-     * @param {*} value
-     * @returns {boolean}
      */
     has(value) {
         if (this.values.indexOf(value) !== -1) {
@@ -17,7 +15,6 @@ class Group {
     }
     /**
      * Adds a new value to the group, if it isn't already present
-     * @param {*} newValue - The new value to add
      */
     add(newValue) {
         if (!this.has(newValue)) {
@@ -26,7 +23,6 @@ class Group {
     }
     /**
      * Removes the specified value from the group, if it exists in it
-     * @param {*} oldValue - The value to remove
      */
     delete(oldValue) {
         if (!this.has(oldValue)) {

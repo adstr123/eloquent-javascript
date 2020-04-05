@@ -1,10 +1,6 @@
 "use strict";
 /**
  * Returns an array containing all numbers from start to end inclusive
- * @param {number} start
- * @param {number} end
- * @param {number} [step=1]
- * @returns {number[]}
  */
 function range(start, end, step = 1) {
     if (end < start) {
@@ -21,8 +17,6 @@ function range(start, end, step = 1) {
 }
 /**
  * Returns the sum of all values in a given array
- * @param {number[]} numbers
- * @returns {number}
  */
 function sum(numbers) {
     const reducer = (accumulator, currentValue) => accumulator + currentValue;

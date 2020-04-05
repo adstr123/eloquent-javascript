@@ -6,9 +6,13 @@
   "dependencies": {
     "@types/node": "^13.11.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "typedoc": "^0.17.3",
+    "typescript": "^3.8.3"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "typedoc": "typedoc --out docs ./"
   },
   "repository": {
     "type": "git",

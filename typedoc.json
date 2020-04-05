@@ -1,0 +1,8 @@
+{
+  "out": "docs",
+  "theme": "minimal",
+  "ignoreCompilerErrors": "true",
+  "target": "ES2015",
+  "excludeExternals": "true",
+  "externalPattern": "**/node_modules/**"
+}

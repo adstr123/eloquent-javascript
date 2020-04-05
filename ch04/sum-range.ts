@@ -1,9 +1,5 @@
 /**
  * Returns an array containing all numbers from start to end inclusive
- * @param {number} start
- * @param {number} end
- * @param {number} [step=1]
- * @returns {number[]}
  */
 function range(start: number, end: number, step: number = 1): number[] {
   if (end < start) {
@@ -22,8 +18,6 @@ function range(start: number, end: number, step: number = 1): number[] {
 
 /**
  * Returns the sum of all values in a given array
- * @param {number[]} numbers
- * @returns {number}
  */
 function sum(numbers: number[]): number {
   const reducer = (accumulator: number, currentValue: number) => accumulator + currentValue;

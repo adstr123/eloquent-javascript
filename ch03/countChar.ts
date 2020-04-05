@@ -1,9 +1,6 @@
 /**
  * Counts occurrences of a specified character in an input string
- * @param {string} input
- * @param {string} searchCharacter
- * @param {boolean} caseSensitive indicates whether the search should ignore case when counting characters
- * @returns {number}
+ * @param caseSensitive indicates whether the search should ignore case when counting characters
  */
 function countChar(input: string, searchCharacter: string, caseSensitive: boolean = false): number {
   let count: number = 0;

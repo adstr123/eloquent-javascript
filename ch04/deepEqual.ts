@@ -1,8 +1,6 @@
 /**
  * Checks whether a and b are equal in both value and type
  * For objects, it checks whether they are equal by comparing property values, NOT by comparing identity as with the === operator
- * @param {*} a
- * @param {*} b
  */
 function deepEqual(a: any, b: any): boolean {
   // if null, ignore

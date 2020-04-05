@@ -1,8 +1,6 @@
 "use strict";
 /**
- * Recursively tests whether a number is even
- * @param {number} number positive, whole
- * @returns {boolean|Function}
+ * Recursively tests whether a positive integer is even
  */
 function isEven(number) {
     if (number < 0)

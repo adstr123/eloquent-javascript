@@ -2,9 +2,6 @@
 /**
  * Returns true when test returns true for every element in array
  * Internal implementation uses for loop
- * @param {*[]} array
- * @param {Function} test
- * @returns {boolean}
  */
 function everyLoop(array, test) {
     for (let el of array) {
@@ -17,9 +14,6 @@ function everyLoop(array, test) {
 /**
  * Returns true when test returns true for every element in array
  * Internal implementation uses .some() function
- * @param {*[]} array
- * @param {Function} test
- * @returns {boolean}
  */
 function everySome(array, test) {
     return !array.some(element => !test(element));

@@ -1,9 +1,8 @@
 "use strict";
 /**
- * Builds a chessboard-style grid of spaces and hashes, alternating columns row-by-row
- * @param {number} gridSizeX
- * @param {number} [gridSizeY=gridSizeX]
- * @returns {string}
+ * Builds a chessboard-style grid of spaces and hashes as a string, alternating columns row-by-row
+ * @param gridSizeX - The width of the chessboard
+ * @param gridSizeY - The height of the chessboard
  */
 function buildChessboard(gridSizeX, gridSizeY = gridSizeX) {
     let chessboard = "";

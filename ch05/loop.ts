@@ -1,9 +1,9 @@
 /**
  * HOF implementation of for loop functionality
- * @param {*} value current value
- * @param {Function} test tests if conditions are still being met to continue loop execution
- * @param {Function} body perform some operation on the current value
- * @param {Function} update update the value and restart the loop
+ * @param value - Current value
+ * @param test - Tests if conditions are still being met to continue loop execution
+ * @param body - Perform some operation on the current value
+ * @param update - Update the value and restart the loop
  */
 function loop(value: any, test: (value: any) => boolean, body: Function, update: (value: any) => any): void {
   while (test(value) !== false) {
