@@ -3,7 +3,10 @@
  * @param gridSizeX - The width of the chessboard
  * @param gridSizeY - The height of the chessboard
  */
-function buildChessboard(gridSizeX: number, gridSizeY: number = gridSizeX): string {
+export default function buildChessboard(
+  gridSizeX: number,
+  gridSizeY: number = gridSizeX
+): string {
   let chessboard: string = "";
 
   for (let y = 0; y < gridSizeY; y++) {
@@ -20,4 +23,4 @@ function buildChessboard(gridSizeX: number, gridSizeY: number = gridSizeX): stri
   return chessboard;
 }
 
-console.log(buildChessboard(8));
+//console.log(buildChessboard(8));
