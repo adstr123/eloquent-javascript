@@ -1,19 +1,19 @@
 /**
- * Recursively tests whether a positive integer is even
+ * Recursively tests whether an integer is even
  */
 
-function isEven(number: number): boolean | Function {
-  if (number < 0) throw new RangeError("Input must be a positive integer");
-
+export default function isEven(number: number): boolean | Function {
   if (number === 0) {
     return true;
   } else if (number === 1) {
     return false;
+  } else if (number < 0) {
+    return isEven(-number);
   } else {
     return isEven(number - 2);
   }
 }
 
-console.log(isEven(50));
-console.log(isEven(75));
-console.log(isEven(-1));
+//console.log(isEven(50));
+//console.log(isEven(75));
+//console.log(isEven(-1));

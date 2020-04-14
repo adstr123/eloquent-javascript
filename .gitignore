@@ -170,6 +170,10 @@ $RECYCLE.BIN/
 *.lnk
 
 # TypeScript output files
-/**/*.js
+*.js
+!jest.config.js
+
+# TSDoc
+docs/
 
 # End of https://www.gitignore.io/api/node,macos,windows,visualstudiocode
