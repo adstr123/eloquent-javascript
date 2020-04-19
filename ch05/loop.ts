@@ -5,19 +5,26 @@
  * @param body - Perform some operation on the current value
  * @param update - Update the value and restart the loop
  */
-function loop(value: any, test: (value: any) => boolean, body: Function, update: (value: any) => any): void {
+export default function loop(
+  value: any,
+  test: (value: any) => boolean,
+  body: Function,
+  update: (value: any) => any
+): void {
   while (test(value) !== false) {
     body(value);
     value = update(value);
   }
 }
 
+/*
 loop(
   3,
-  n => n > 0,
+  (n) => n > 0,
   console.log,
-  n => n - 1
+  (n) => n - 1
 );
 // → 3
 // → 2
 // → 1
+*/
