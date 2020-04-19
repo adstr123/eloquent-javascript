@@ -1,10 +1,10 @@
-import { IList } from "../types";
+/// <reference path="../typings/index.d.ts" />
 
 /**
  * Builds a list data structure from an array
  * @param array - An array of any data type, to turn into a list
  */
-function arrayToList(array: any[]): IList | null {
+export function arrayToList(array: any[]): List.IList | null {
   if (array.length > 0) {
     let list = null;
     // iterates from back to front
@@ -16,7 +16,9 @@ function arrayToList(array: any[]): IList | null {
     }
     return list;
   } else {
-    throw new TypeError("Input must be an array containing at least one element");
+    throw new TypeError(
+      "Input must be an array containing at least one element"
+    );
   }
 }
 
@@ -24,11 +26,11 @@ function arrayToList(array: any[]): IList | null {
  * Builds an Array from a list
  * @param list - A list of any data type, to turn into an array
  */
-function listToArray(list: IList): any[] {
+export function listToArray(list: List.IList): any[] {
   let array = [];
   array.push(list.value);
 
-  let temp: IList | null = list.rest;
+  let temp: List.IList | null = list.rest;
   while (temp) {
     array.push(temp.value);
     temp = temp.rest;
@@ -40,7 +42,7 @@ function listToArray(list: IList): any[] {
  * Returns a new list that adds a specified element to the front of a specified list
  * If the specified list is null, it creates a new list whose only value is the new value added
  */
-function prepend(value: any, list: IList | null): IList {
+export function prepend(value: any, list: List.IList | null): List.IList {
   return { value, rest: list };
 }
 
@@ -49,7 +51,7 @@ function prepend(value: any, list: IList | null): IList {
  * @param {number} index element position to retrieve
  * @param {List} list the list to add to
  */
-function nth(list: IList | null, index: number): any {
+export function nth(list: List.IList | null, index: number): any {
   if (!list) {
     return undefined;
   } else if (index === 0) {

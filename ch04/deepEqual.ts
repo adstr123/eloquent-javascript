@@ -2,7 +2,7 @@
  * Checks whether a and b are equal in both value and type
  * For objects, it checks whether they are equal by comparing property values, NOT by comparing identity as with the === operator
  */
-function deepEqual(a: any, b: any): boolean {
+export default function deepEqual(a: any, b: any): boolean {
   // if null, ignore
   if (
     a === null ||
@@ -31,10 +31,10 @@ function deepEqual(a: any, b: any): boolean {
   throw new TypeError("Invalid input type (shouldn't be reachable)");
 }
 
-let obj = { here: { is: "an" }, object: 2 };
-console.log(deepEqual(obj, obj));
+//let obj = { here: { is: "an" }, object: 2 };
+//console.log(deepEqual(obj, obj));
 // → true
-console.log(deepEqual(obj, { here: 1, object: 2 }));
+//console.log(deepEqual(obj, { here: 1, object: 2 }));
 // → false
-console.log(deepEqual(obj, { here: { is: "an" }, object: 2 }));
+//console.log(deepEqual(obj, { here: { is: "an" }, object: 2 }));
 // → true

@@ -1,7 +1,7 @@
 /**
  * Returns a new array that has the elements of the input array but in reverse order
  */
-function reverseArray(numbers: any[]): any[] {
+export function reverseArray(numbers: any[]): any[] {
   const numbersReversed = [];
   for (let i = 0; i < numbers.length; i++) {
     numbersReversed.push(numbers[numbers.length - 1 - i]);
@@ -12,7 +12,7 @@ function reverseArray(numbers: any[]): any[] {
 /**
  * Modified the input array to reverse the order of its elements
  */
-function reverseArrayInPlace(numbers: any[]): any[] {
+export function reverseArrayInPlace(numbers: any[]): any[] {
   // use Math.floor() in case length is odd
   for (var i = 0; i <= Math.floor((numbers.length - 1) / 2); i++) {
     // remember temp el
@@ -24,5 +24,5 @@ function reverseArrayInPlace(numbers: any[]): any[] {
   return numbers;
 }
 
-console.log(reverseArray([1, 2, 3]));
-console.log(reverseArrayInPlace(["one", "two", "three"]));
+//console.log(reverseArray([1, 2, 3]));
+//console.log(reverseArrayInPlace(["one", "two", "three"]));

@@ -1,12 +1,12 @@
-import { IJournal } from "../types";
-const JOURNAL: IJournal = require("./ex-lycanthropes-log-data.json");
+/// <reference path="../typings/index.d.ts" />
+const JOURNAL: Journal.IJournal = require("./ex-lycanthropes-log-data.json");
 
 /**
  * Records an event in the journal JSON object
  * @param events - A list of the day's events to record
  * @param squirrel - Whether squirrel form was assumed during the day or not
  */
-function addEntry(events: string[], squirrel: boolean): void {
+export function addEntry(events: string[], squirrel: boolean): void {
   JOURNAL.push({ events, squirrel });
 }
 
@@ -16,7 +16,7 @@ function addEntry(events: string[], squirrel: boolean): void {
  * ... where n is one of the event frequencies, n\bullet is the sum of all measurements where n event is true
  * @param table - Flat array denoting a 2x2 frequency table
  */
-function phi(table: number[]): number {
+export function phi(table: number[]): number {
   return (
     (table[3] * table[0] - table[2] * table[1]) /
     Math.sqrt(
@@ -29,11 +29,13 @@ function phi(table: number[]): number {
 }
 
 /**
- * Extracts a 2x2 frequency table for a specific event from the journal JSON object
+ * Extracts a 2x2 frequency table for a specific event vs. the squirrel event, from the journal JSON object
+ * [both don't occur][a occurs, b doesn't]
+ * [b occurs, a doesn't][both occur]
  * @param event - Event to search for occurrences of
  * @param journal - Data source
  */
-function tableFor(event: string, journal: IJournal): number[] {
+export function tableFor(event: string, journal: Journal.IJournal): number[] {
   let table = [0, 0, 0, 0];
   for (let i = 0; i < journal.length; i++) {
     let entry = journal[i];
@@ -50,7 +52,7 @@ function tableFor(event: string, journal: IJournal): number[] {
  * Enables us to compute a correlation for every type of event that occurs in the data set
  * @param journal - Data source
  */
-function journalEvents(journal: IJournal): string[] {
+export function journalEvents(journal: Journal.IJournal): string[] {
   let events: string[] = [];
   for (let entry of journal) {
     for (let event of entry.events) {
@@ -62,6 +64,7 @@ function journalEvents(journal: IJournal): string[] {
   return events;
 }
 
+/*
 // MAIN
 // print all correlations
 for (let event of journalEvents(JOURNAL)) {
@@ -88,3 +91,4 @@ for (let entry of JOURNAL) {
   }
 }
 console.log("peanut teeth: " + phi(tableFor("peanut teeth", JOURNAL)));
+*/
