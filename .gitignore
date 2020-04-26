@@ -169,6 +169,7 @@ $RECYCLE.BIN/
 # TypeScript output files
 *.js
 !jest.config.js
+!jest-custom-matchers.js
 
 # TSDoc
 docs/
