@@ -30,3 +30,14 @@ declare namespace List {
     rest: IList | null;
   }
 }
+
+declare namespace Robot {
+  export interface Graph {
+    [index: string]: string[];
+  }
+
+  export interface Parcel {
+    place: string;
+    address: string;
+  }
+}

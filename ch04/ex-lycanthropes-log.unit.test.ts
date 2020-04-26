@@ -15,28 +15,6 @@ const testJournal = [
   },
 ];
 
-expect.extend({
-  /**
-   * Array contains no duplicate elements
-   * @param received
-   */
-  toHaveUnique(received: any[]) {
-    const pass =
-      Array.isArray(received) && new Set(received).size === received.length;
-    if (pass) {
-      return {
-        message: () => `expected [${received}] array elements are unique`,
-        pass: true,
-      };
-    } else {
-      return {
-        message: () => `expected [${received}] array elements are not unique`,
-        pass: false,
-      };
-    }
-  },
-});
-
 describe("when generating a list of events in a data source", () => {
   test("total number of unique events in testJournal is 6", () => {
     expect(journalEvents(testJournal)).toHaveLength(6);
