@@ -61,7 +61,7 @@ export function routeRobot(
   return { direction: memory[0], memory: memory.slice(1) };
 }
 
-function goalOrientedRobot({ place, parcels }, route) {
+export function goalOrientedRobot({ place, parcels }, roadGraph, memory: string[]) {
   if (route.length == 0) {
     let parcel = parcels[0];
     if (parcel.place != place) {

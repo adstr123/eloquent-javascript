@@ -1,4 +1,4 @@
-import { randomPick, randomRobot } from "./randomRobot";
+import { randomPick, randomRobot } from "./buildRobot";
 import VillageState from "./VillageState";
 
 let destinations = ["oxford", "bristol", "cardiff", "london", "aviemore"];

@@ -1,5 +1,5 @@
 import VillageState from "./VillageState";
-import { randomRobot, routeRobot } from "./buildRobot";
+import { randomRobot, routeRobot, goalOrientedRobot } from "./buildRobot";
 
 export default function runRobot(
   state: VillageState,
@@ -35,3 +35,4 @@ const roadGraph = {
 
 runRobot(VillageState.random(roadGraph), roadGraph, randomRobot);
 runRobot(VillageState.random(roadGraph), roadGraph, routeRobot, []);
+runRobot(VillageState.random(roadGraph), roadGraph, goalOrientedRobot, []);
