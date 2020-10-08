@@ -45,6 +45,16 @@ export class Group {
   [Symbol.iterator]() {
     return new GroupIterator(this);
   }
+
+  // generator version
+  // no secondary object required - automatically stores local state with each yield
+  /*
+  [Symbol.iterator] = function*(this: Group) {
+    for (let i = 0; i < this.values.length; i++) {
+      yield this.values[i];
+    }
+  }
+  */
 }
 
 /** Makes the Group class iterable */
