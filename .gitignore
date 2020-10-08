@@ -170,6 +170,8 @@ $RECYCLE.BIN/
 *.js
 !jest.config.js
 !jest-custom-matchers.js
+!/ch11/crow-tech.js
+!/ch11/example.js
 
 # TSDoc
 docs/
