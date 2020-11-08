@@ -161,24 +161,43 @@ function drawPie(canvas: HTMLCanvasElement) {
 }
 
 function bounceBall(canvas: HTMLCanvasElement) {
-  function updateBall() {
-    requestAnimationFrame(updateBall);
+  let lastTime: number | null = null;
+  let x = 100,
+    y = 300;
+  let radius = 10;
+  let speedX = 100,
+    speedY = 60;
+
+  requestAnimationFrame(frame);
+
+  function frame(time: number) {
+    if (lastTime != null) {
+      updateAnimation(Math.min(100, time - lastTime) / 1000);
+    }
+    lastTime = time;
+    requestAnimationFrame(frame);
   }
 
-  const cx = canvas.getContext("2d");
-  if (cx) {
-    // setup animation
-    const radius = canvas.width / 5;
-    cx.beginPath();
-    cx.arc(radius, radius, radius, 0, 2 * Math.PI);
-    cx.fillStyle = "red";
-    cx.fill();
+  function updateAnimation(step: number) {
+    const cx = canvas.getContext("2d");
+    if (cx) {
+      cx.clearRect(0, 0, 400, 400);
+      cx.strokeStyle = "blue";
+      cx.lineWidth = 4;
+      cx.strokeRect(25, 25, 350, 350);
 
-    // start animation
-    requestAnimationFrame(updateBall);
-  } else {
-    throw new ReferenceError(
-      `No rendering context exists for HTML element ${canvas}`
-    );
+      x += step * speedX;
+      y += step * speedY;
+      if (x < 25 + radius || x > 375 - radius) speedX = -speedX;
+      if (y < 25 + radius || y > 375 - radius) speedY = -speedY;
+      cx.fillStyle = "red";
+      cx.beginPath();
+      cx.arc(x, y, radius, 0, 7);
+      cx.fill();
+    } else {
+      throw new ReferenceError(
+        `No rendering context exists for HTML element ${canvas}`
+      );
+    }
   }
 }
