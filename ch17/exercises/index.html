@@ -4,9 +4,19 @@
 <body>
   <canvas width="100" height="100" id="trapezoid"></canvas>
   <canvas width="100" height="100" id="diamond"></canvas>
+  <canvas width="100" height="100" id="zigZag"></canvas>
+  <canvas width="100" height="100" id="spiral"></canvas>
+  <canvas width="100" height="100" id="star"></canvas>
+  <canvas width="200" height="200" id="pie"></canvas>
+  <canvas width="300" height="300" id="ball"></canvas>
 
   <script>
     drawTrapezoid(document.getElementById("trapezoid"), 80, 40, 20);
     drawDiamond(document.getElementById("diamond"), 30, 30);
+    drawZigZag(document.getElementById("zigZag"), 100, 100, 10);
+    drawSpiral(document.getElementById("spiral"), 50);
+    drawStar(document.getElementById("star"), 50, 8);
+    drawPie(document.getElementById("pie"));
+    bounceBall(document.getElementById("ball"));
   </script>
 </body>
