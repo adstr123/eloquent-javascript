@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="./game.css" />
+</head>
+
+<body>
+  <script type="module">
+    import runGame from "./draw.js";
+    import GAME_LEVELS from "./levels.js";
+    import { DOMDisplay } from "./draw.js";
+
+    runGame(GAME_LEVELS, DOMDisplay);
+  </script>
+</body>
