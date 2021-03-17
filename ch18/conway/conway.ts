@@ -1,4 +1,4 @@
-class Grid {
+export class Grid {
   gridEl: HTMLElement;
   gridCells: Cell[];
   length: number;
@@ -55,23 +55,19 @@ class Grid {
     }
   }
 
+  /**
+   * // loop through adjacent cells (inc diagonal) and check:
+   * 1. any live cell with fewer than two/more than three live neighbors dies
+   * 2. any live cell with two or three live neighbors lives on
+   * 3. any dead cell with three live neighbors becomes live
+   * changes happening to neighbors during this generation do not influence new state of a given cell
+   * */
   advanceGeneration() {
-    // loop through adjacent cells (inc diagonal) and check:
-    for (const cell of this.gridCells) {
-      const liveNeighbours = cell.adjacentCells.filter(
-        (adjacentCell) => adjacentCell?.cellEl.checked
-      ).length;
-      // 1. any live cell with fewer than two/more than three live neighbors dies (default newState), do nothing
-      // 2. any live cell with two or three live neighbors lives on
-      if (cell.cellEl.checked && 2 <= liveNeighbours && liveNeighbours <= 3)
-        cell.newState = true;
-      // 3. any dead cell with three live neighbors becomes live
-      if (!cell.cellEl.checked && liveNeighbours === 3) cell.newState = true;
-      // changes happening to neighbors during this generation do not influence new state of a given cell
-    }
+    this.gridCells.forEach((cell) => cell.calculateNextState());
 
-    this.gridCells.forEach((cell) => (cell.cellEl.checked = cell.newState));
-    this.gridCells.forEach((cell) => (cell.newState = false));
+    // update DOM & reset nextState for next generation
+    this.gridCells.forEach((cell) => (cell.cellEl.checked = cell.nextState));
+    this.gridCells.forEach((cell) => (cell.nextState = false));
   }
 
   getCellByIndex(row: number, column: number): Cell | null {
@@ -96,7 +92,7 @@ class Cell {
   rowIndex: number;
   columnIndex: number;
   adjacentCells: (Cell | null)[];
-  newState: boolean;
+  nextState: boolean;
 
   /**
    * Create a cell.
@@ -113,10 +109,11 @@ class Cell {
     this.rowIndex = rowIndex;
     this.columnIndex = columnIndex;
     this.adjacentCells = [];
-    this.newState = false;
+    this.nextState = false;
   }
 
   initAdjacentCells() {
+    // top
     this.adjacentCells[0] = this.masterGrid.getCellByIndex(
       this.rowIndex - 1,
       this.columnIndex
@@ -157,14 +154,39 @@ class Cell {
       this.columnIndex - 1
     );
   }
+
+  calculateNextState() {
+    const liveNeighbours = this.adjacentCells.filter(
+      (adjacentCell) => adjacentCell?.cellEl.checked
+    ).length;
+
+    // default nextState in Cell class is dead - only need to write rules to change to live
+    if (this.cellEl.checked && 2 <= liveNeighbours && liveNeighbours <= 3)
+      this.nextState = true;
+    if (!this.cellEl.checked && liveNeighbours === 3) this.nextState = true;
+
+    return this.nextState;
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const gridObj = new Grid(document.getElementById("grid")!, 10000);
+  const gridObj = new Grid(document.getElementById("grid")!, 100 * 100);
   const advanceBtn = document.getElementById("advance");
+  const toggleBtn = document.getElementById("toggle");
+  const counter = document.getElementById("counter");
 
   // when button is clicked, advance generation
   advanceBtn?.addEventListener("click", () => {
     gridObj.advanceGeneration();
+  });
+
+  toggleBtn?.addEventListener("click", () => {
+    let count = 0;
+
+    setInterval(() => {
+      gridObj.advanceGeneration();
+      count++;
+      if (counter) counter.textContent = `Generation: ${count}`;
+    }, 1000 / 30);
   });
 });
