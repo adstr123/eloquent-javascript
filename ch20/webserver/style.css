@@ -1,0 +1,17 @@
+label, textarea, button {
+  display: block;
+}
+
+textarea {
+  width: 100%;
+  height: 200px;
+  max-width: 480px;
+}
+
+main, .editor {
+  padding: 2rem 1rem;
+}
+
+.editor {
+  border-top: 1px solid black;
+}

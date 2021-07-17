@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>A Public Space on the Web</title>
+    <meta
+      name="description"
+      content="A web server that serves editable files"
+    />
+    <meta name="author" content="Adam Matheson" />
+
+    <link rel="stylesheet" href="style.css?v=1.0" />
+  </head>
+
+  <body>
+    <main>
+      <h1>The date is <span id="date"></span></h1>
+    </main>
+
+    <div class="editor">
+      <form method="post">
+        <label for="file-editor">File editor</label>
+        <textarea id="file-editor"></textarea>
+
+        <input type="hidden" name="_method" value="PUT">
+        <button type="submit">Save</button>
+      </form>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
